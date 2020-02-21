@@ -7,7 +7,7 @@ export const fetchPlayers = () => dispatch => {
     dispatch({ type: FETCH_DATA })
 
     axios
-        .post(`http://localhost:8888/players`)
+        .get(`http://localhost:8888/players`)
         .then(res => {
             console.log(res.data);
             dispatch({ type: FETCH_SUCCESS, payload: res.data })

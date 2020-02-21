@@ -2,6 +2,7 @@
 const initialState = {
     players: [],
     isFetching: false,
+    isPosting: false,
     errors: ''
 }
 

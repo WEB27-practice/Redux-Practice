@@ -1,14 +1,20 @@
 
-import React from "react";
+import React, { useEffect } from "react";
 import PlayerCard from "./PlayerCard.js";
 import { connect } from "react-redux";
 
+import { fetchPlayers } from "../actions";
 
 const PlayerList = (props) => {
-    
+    console.log(props)
+
+    useEffect(() => {
+        props.fetchPlayers()
+    }, [])
+
+
     return (
         <div>
-            <h1>Hello from the PlayerList component!!</h1>    
             <PlayerCard />
         </div>
     )
@@ -25,5 +31,5 @@ const mapStateToProps = (state) => {
 
 export default connect(
     mapStateToProps, 
-    {}
+    { fetchPlayers }
 )(PlayerList);
