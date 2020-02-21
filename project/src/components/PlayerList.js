@@ -15,7 +15,12 @@ const PlayerList = (props) => {
 
     return (
         <div>
-            <PlayerCard />
+            <h1 className="title">Soccer players app</h1>
+            <div className="card-container">
+                {props.players.map(player => (
+                    <PlayerCard player ={player}/>
+                ))}
+            </div>
         </div>
     )
 }

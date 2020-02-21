@@ -2,11 +2,16 @@
 import React from "react";
 
 // 2
-const PlayerCard = () => {
+const PlayerCard = props => {
+    console.log(`player card props -->`, props);
     // 2.1
     return (
         <div>
-            <h1>Hello from the PlayerCard component!!</h1>    
+            <div className="card">
+                <h2>{props.player.name}</h2>
+                <h3>{props.player.rank}</h3>
+                <h3>{props.player.nickname}</h3>
+            </div>
         </div>
     )
 }

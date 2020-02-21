@@ -6,10 +6,12 @@ import './App.css';
 
 function App() {
   return (
-    <div className="center">
-      <h1>Soccer Players</h1>
+    <div className="App">
+      <div className="image">
+        <h1>Soccer Players</h1>
         <PlayerForm />
         <PlayerList />
+      </div>
     </div>
   );
 }

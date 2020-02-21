@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
-import { postPlayer } from "../actions";
+import  { postPlayers } from "../actions";
 
 const PlayerForm = (props) => {
     
@@ -11,15 +11,15 @@ const PlayerForm = (props) => {
         rank: '',
         nickname: ''
     });
-       
 
     const inputHandler = e => {
-        setPlayer({ [e.target.name]: e.target.value })
+        e.preventDefault()
+        setPlayer({ ...player, [e.target.name]: e.target.value })
     }
 
     const submitHandler = e => {
         e.preventDefault();
-        props.postPlayer(player);
+        props.postPlayers(player);
     }
 
     return (
@@ -30,7 +30,7 @@ const PlayerForm = (props) => {
                     type="text"
                     name="name"
                     label="name"
-                    placeHolder="Lionel Messi"
+                    placeholder="Lionel Messi"
                     value={props.name}
                     onChange={inputHandler}
                     className="input"
@@ -40,7 +40,7 @@ const PlayerForm = (props) => {
                     type="text"
                     name="rank"
                     label="rank"
-                    placeHolder="1"
+                    placeholder="1"
                     value={props.rank}
                     onChange={inputHandler}
                     className="input"
@@ -50,7 +50,7 @@ const PlayerForm = (props) => {
                     type="text"
                     name="nickname"
                     label="nickname"
-                    placeHolder="La Pulga"
+                    placeholder="La Pulga"
                     value={props.nickname}
                     onChange={inputHandler}
                     className="input"
@@ -70,5 +70,5 @@ const mapStateToProps = (state) => {
 
 export default connect(
     mapStateToProps,
-    { postPlayer }
+    { postPlayers }
 )(PlayerForm);
