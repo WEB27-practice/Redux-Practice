@@ -1,9 +1,10 @@
-// 1
-import React from "react";
 
-// 2
-const PlayerForm = () => {
-    // 2.1
+import React from "react";
+import { connect } from "react-redux";
+
+
+const PlayerForm = (props) => {
+    
     return (
         <div>
             <h1>Hello from the PlayerForm component!!</h1>    
@@ -11,5 +12,14 @@ const PlayerForm = () => {
     )
 }
 
-// 3
-export default PlayerForm;
+const mapStateToProps = (state) => {
+    return {
+        players: state.players,
+        errors: state.errors
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    {}
+)(PlayerForm);
